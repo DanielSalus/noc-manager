@@ -5,6 +5,11 @@ class App(ctk.CTk):
         super().__init__()
         self.tela_conf()
         self.menu_lateral()
+        self.menu_principal()
+        self.frame_total()
+        self.frame_abertos()
+        self.frame_criticos()
+        self.frame_resolvidos()
     def tela_conf(self):
         self.title("NOC MANAGER")
         self.geometry("1100x650")
@@ -45,6 +50,66 @@ class App(ctk.CTk):
                                               fg_color="#041C53")
 
         self.button_sair.place(relx=0.49, rely=0.93, anchor="center",)
+
+    def menu_principal(self):
+        #criar um frame principal
+        self.frame_principal = ctk.CTkFrame(self, width =880, height=638, fg_color="#e8e8e8",)
+        self.frame_principal.place(relx=0.19, rely=0.01,)
+        #criar um frame de qtd com duas labels dentro
+        self.label_titulo_dash = ctk.CTkLabel(
+            self.frame_principal, text="Dashboard", font=("verdana", 30, "bold"), text_color="Black",
+
+        )
+        self.label_titulo_dash.place(relx=0.02, rely=0.04,)
+    def frame_total(self):
+        pass
+        #criar label total
+        self.total_frame = ctk.CTkFrame(self.frame_principal, width =200, height=110, fg_color="white",)
+        self.total_frame.place(relx=0.02, rely=0.14,)
+
+        self.labe_total = ctk.CTkLabel(self.total_frame, text="Total", font=("verdana", 15, "bold"), text_color="Black")
+        self.labe_total.place(relx=0.35, rely=0.17, )
+
+        self.label_tot = ctk.CTkLabel(self.total_frame, text="0", font=("verdana", 30, "bold"), text_color="Blue")
+        self.label_tot.place(relx=0.40, rely=0.45, )
+
+    def frame_abertos(self):
+        pass
+        # criar label total
+        self.abertos_frame = ctk.CTkFrame(self.frame_principal, width=200, height=110, fg_color="white", )
+        self.abertos_frame.place(relx=0.26, rely=0.14, )
+
+        self.labe_abertos = ctk.CTkLabel(self.abertos_frame, text="Abertos", font=("verdana", 15, "bold"), text_color="Black")
+        self.labe_abertos.place(relx=0.35, rely=0.17, )
+
+        self.label_tot_abertos = ctk.CTkLabel(self.abertos_frame, text="0", font=("verdana", 30, "bold"), text_color="Blue")
+        self.label_tot_abertos.place(relx=0.46, rely=0.45, )
+
+    def frame_criticos(self):
+        pass
+        # criar label total
+        self.criticos_frame = ctk.CTkFrame(self.frame_principal, width=200, height=110, fg_color="white", )
+        self.criticos_frame.place(relx=0.50, rely=0.14, )
+
+        self.labe_criticos = ctk.CTkLabel(self.criticos_frame, text="Critícos", font=("verdana", 15, "bold"), text_color="Black")
+        self.labe_criticos.place(relx=0.35, rely=0.17,)
+
+        self.label_tot_criticos = ctk.CTkLabel(self.criticos_frame, text="0", font=("verdana", 30, "bold"),
+                                              text_color="Red")
+        self.label_tot_criticos.place(relx=0.46, rely=0.45, )
+
+    def frame_resolvidos(self):
+        pass
+        # criar label total
+        self.resolvidos_frame = ctk.CTkFrame(self.frame_principal, width=200, height=110, fg_color="white", )
+        self.resolvidos_frame.place(relx=0.74, rely=0.14, )
+
+        self.labe_resolvidos = ctk.CTkLabel(self.resolvidos_frame, text="Resolvidos", font=("verdana", 15, "bold"), text_color="Black")
+        self.labe_resolvidos.place(relx=0.30, rely=0.17,)
+
+        self.label_tot_resolvidos = ctk.CTkLabel(self.resolvidos_frame, text="0", font=("verdana", 30, "bold"),
+                                              text_color="green")
+        self.label_tot_resolvidos.place(relx=0.46, rely=0.45, )
 
 
 
