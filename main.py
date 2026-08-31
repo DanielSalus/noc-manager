@@ -1,4 +1,6 @@
 import customtkinter as ctk
+from tkinter import*
+from tkinter import ttk
 
 class App(ctk.CTk):
     def __init__(self):
@@ -10,6 +12,7 @@ class App(ctk.CTk):
         self.frame_abertos()
         self.frame_criticos()
         self.frame_resolvidos()
+        self.frame_meio()
     def tela_conf(self):
         self.title("NOC MANAGER")
         self.geometry("1100x650")
@@ -110,6 +113,31 @@ class App(ctk.CTk):
         self.label_tot_resolvidos = ctk.CTkLabel(self.resolvidos_frame, text="0", font=("verdana", 30, "bold"),
                                               text_color="green")
         self.label_tot_resolvidos.place(relx=0.46, rely=0.45, )
+
+    def frame_meio(self):
+        self.frame_lista = ctk.CTkFrame(self.frame_principal, width=830, height=380, fg_color="white", )
+        self.frame_lista.place(relx=0.02, rely=0.37, )
+
+        self.label_incidentes = ctk.CTkLabel(self.frame_lista, text="Incidentes recentes", font=("verdana", 20, "bold"), text_color="Black")
+        self.label_incidentes.place(relx=0.02, rely=0.06, )
+
+        self.lista_incidentes = ttk.Treeview(self.frame_lista, columns=('colum1', 'colum2', 'colum3', 'colum4' ),)
+
+        self.lista_incidentes.heading("#0", text="Protocolo",)
+        self.lista_incidentes.heading("#1", text="Título",)
+        self.lista_incidentes.heading("#2", text="Sistema",)
+        self.lista_incidentes.heading("#3", text="Prioridade",)
+        self.lista_incidentes.heading("#4", text="Status",)
+
+        self.lista_incidentes.column("#0", width=1)
+        self.lista_incidentes.column("#1", width=100)
+        self.lista_incidentes.column("#2", width=100)
+        self.lista_incidentes.column("#3", width=125)
+        self.lista_incidentes.column("#4", width=125)
+
+        self.lista_incidentes.place(relx=0.02, rely=0.17, relheight=0.78, relwidth=0.96 )
+        self.style = ttk.Style()
+        self.style.theme_use("clam")
 
 
 
